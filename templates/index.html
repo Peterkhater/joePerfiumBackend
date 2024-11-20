@@ -1285,19 +1285,19 @@
     <!-- product area ends -->
 
 
-    <div class="container">
-        <div class="container-fluid text-center d-flex justify-content-center align-items-center" style="overflow: hidden; height: 200px;">
-            <img src="{% static "images/pngwing.com.png" %}" alt="" class="categoryPerfiumGenderImage">
+    <div class=" prfiumMixContainer p-4 mt-4">
+        <div class="container-fluid text-center d-flex justify-content-center align-items-center" style="overflow: hidden; height: 250px;">
+            <img src="{% static "images/6aa9905e29839.png" %}" alt="" class="categoryPerfiumGenderImage">
             <h1 class="categoryPerfiumGenderp">Create Your Unique Perfume</h1>
-            <img src="{% static "images/pngwing.com.png" %}" alt="" class="categoryPerfiumGenderImage" >
+            <img src="{% static "images/6aa9905e29839.png" %}" alt="" class="categoryPerfiumGenderImage" >
         </div>
         
-        <p>Choose your bottle size, pick your favorite essences, and create a fragrance that's truly yours!</p>
+        <p class="text-light">Choose your bottle size, pick your favorite essences, and create a fragrance that's truly yours!</p>
         <button class="start-btn button" onclick="startCustomization()">Start Creating</button>
 
         <div id="customization-section" class="customization-section" style="display:none;">
-            <h2>Step 1: Choose Your Bottle Size</h2>
-            <div class="bottle-size">
+            <h2 class="categoryPerfiumGenderp">Step 1: Choose Your Bottle Size</h2>
+            <div class="bottle-size my-5">
                 <div class="bottle-option" data-size="50ml" data-price="30" onclick="selectBottle(this)">
                     <img src="bottle-50ml.png" alt="50ml Bottle">
                     <p>50ml</p>
@@ -1315,12 +1315,17 @@
                 </div>
             </div>
 
-            <h2>Step 2: Select Your Essences</h2>
-            <div class="essence-selection">
-                <div class="essence" data-essence="Lavender" data-price="10" onclick="selectEssence(this)">
-                    <img src="lavender.png" alt="Lavender">
+            <h2 class="categoryPerfiumGenderp">Step 2: Select Your Essences</h2>
+            <div class="essence-selection my-5">
+                <div class="container d-flex justify-content-end align-item-center p-0">
+                    <button class="mx-3 btn btn_clear_designe" id="btn_clear">Clear</button><br>
+                    <button type="mx-3 button" class="btn btn_clear_designe" onclick="whatsapp_text()">send your mix</button>
+                </div>
+                <div class="essence" data-essence="Lavenders" data-price="50" onclick="selectEssence(this)">
+                    <img src="{% static "images/blog/blog1.jpg" %}" alt="Lavender">
                     <p>Lavender</p>
                 </div>
+                
                 <div class="essence" data-essence="Rose" data-price="15" onclick="selectEssence(this)">
                     <img src="rose.png" alt="Rose">
                     <p>Rose</p>
@@ -1330,13 +1335,16 @@
                     <p>Vanilla</p>
                 </div>
                 <div class="essence" data-essence="Jasmine" data-price="18" onclick="selectEssence(this)">
-                    <img src="jasmine.png" alt="Jasmine">
+                    <img src="{% static "images/slider/slider1.jpg" %}" alt="Jasmine">
                     <p>Jasmine</p>
                 </div>
             </div>
 
-            <h2>Step 3: Total Price</h2>
+           
+            <h2 class="categoryPerfiumGenderp">Step 3: Total Price</h2>
             <p id="total-price">Total: $0.00</p>
+            
+           
         </div>
     </div>
 

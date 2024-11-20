@@ -200,7 +200,7 @@ font-family: 'Playfair Display', serif;
   font-weight: 400;
 }
 .categoryPerfiumGenderp{
-  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #fff;
@@ -3263,9 +3263,13 @@ body {
   padding: 15px 25px;
   font-size: 1.2rem;
 }
+.prfiumMixContainer{
+  background-color: rgb(52, 52, 52);
+}
 
 .customization-section {
   margin-top: 40px;
+  
 }
 
 .bottle-size, .essence-selection {
@@ -3273,6 +3277,12 @@ body {
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+}
+.essence-selection{
+  flex-wrap: wrap;
+}
+.bottle-size{
+  gap: 7px;
 }
 
 .bottle-option, .essence {
@@ -3283,21 +3293,44 @@ body {
   transition: transform 0.2s;
 }
 
-.bottle-option img, .essence img {
+.bottle-option img {
   width: 100px;
   height: 100px;
 }
-
-.bottle-option p, .essence p {
-  margin: 5px 0;
-  font-size: 1.1rem;
+.essence img{
+  width: 50px;
+  height: 50px;
 }
 
+.bottle-option p, .essence p {
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+font-family: 'Playfair Display', serif;
+  text-transform: uppercase;    
+  margin: 3px 0;
+  font-size: 0.8rem;
+}
+.btn_clear_designe{
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
+}
 .bottle-option:hover, .essence:hover {
   transform: scale(1.1);
 }
 
 #total-price {
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+font-family: 'Playfair Display', serif;
+  position: relative;
+  text-transform: uppercase;    
+  margin: 0;
+  font-weight: 400;
   font-size: 1.5rem;
   color: #333;
+  padding: 10px;
+  margin-top: 5px;
 }

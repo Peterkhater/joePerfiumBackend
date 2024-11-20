@@ -397,3 +397,62 @@ function selectEssence(element) {
 function updatePrice() {
     document.getElementById('total-price').textContent = `Total: $${totalPrice.toFixed(2)}`;
 }
+
+
+
+function clear() {
+    // Reset the selected bottle and its visual indicator
+    if (selectedBottle) {
+        selectedBottle.style.border = 'none';
+        selectedBottle = null;
+    }
+
+    // Reset essences and their visual indicators
+    selectedEssences.forEach(essence => {
+        const essenceElement = document.querySelector(`[data-essence="${essence.name}"]`);
+        if (essenceElement) {
+            essenceElement.style.opacity = 1; // Restore full opacity
+        }
+    });
+    selectedEssences = [];
+
+    // Reset total price and update display
+    totalPrice = 0;
+    updatePrice();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const clearButton = document.getElementById('btn_clear');
+  if (clearButton) {
+      clearButton.addEventListener('click', clear);
+  } else {
+      console.error("Clear button not found!");
+  }
+});
+
+
+
+function whatsapp_text() {
+  if (!selectedBottle) {
+      alert("Please select a bottle.");
+      return;
+  }
+
+  
+  const bottleSize = selectedBottle.getAttribute('data-size') || 'unknown size';
+
+ 
+  const essencesList = selectedEssences
+      .map((essence, index) => `${index + 1}: ${essence.name}`)
+      .join('\n');
+
+  
+      const text = `Hello Joe,\nI would like to order a ${bottleSize} bottle. \nThe essences I would like to include are:\n${essencesList}`;
+
+
+  console.log(text); 
+
+  // Example: Send this text via WhatsApp
+  const whatsappUrl = `https://wa.me/+96181121347?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, '_blank');
+}
