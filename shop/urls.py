@@ -3,5 +3,7 @@ from django.shortcuts import render
 from . import views
 
 urlpatterns = [
-path('',views.main,name='shop')
+path('',views.main,name='shop'),
+path('product/<int:pk>',views.product, name="product")
+
 ]

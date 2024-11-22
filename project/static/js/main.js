@@ -204,45 +204,6 @@
       '<i class="fa fa-arrow-right"></i>',
     ],
   });
-
-  // activation of one column of Best seller product
-  $(".product_column3")
-    .on("changed.owl.carousel initialized.owl.carousel", function (event) {
-      $(event.target)
-        .find(".owl-item")
-        .removeClass("last")
-        .eq(event.item.index + event.page.size - 1)
-        .addClass("last");
-    })
-    .owlCarousel({
-      autoplay: true,
-      loop: true,
-      nav: true,
-      autoplay: false,
-      autoplayTimeout: 5000,
-      items: 4,
-      dots: false,
-      navText: [
-        '<i class="fa fa-arrow-left"></i>',
-        '<i class="fa fa-arrow-right"></i>',
-      ],
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        567: {
-          items: 2,
-        },
-        768: {
-          items: 3,
-        },
-        992: {
-          items: 3,
-        },
-      },
-    });
-
   // activation of blog section
   $(".blog_column3").owlCarousel({
     autoplay: true,
