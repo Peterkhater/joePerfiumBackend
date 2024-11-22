@@ -403,11 +403,12 @@
             <img src="{% static "images/6aa9905e29839.png" %}" alt="" class="categoryPerfiumGenderImage" >
         </div>
         
-        <p class="text-light">Choose your bottle size, pick your favorite essences, and create a fragrance that's truly yours!</p>
-        <button class="start-btn button" onclick="startCustomization()">Start Creating</button>
-
+        <div class="container d-flex align-item-center justify-content-center" style="flex-direction: column;">
+            <p class="text-light text-center">Choose your bottle size, pick your favorite essences, and create a fragrance that's truly yours!</p>
+            <button class="start-btn button text-center" onclick="startCustomization()">Start Creating</button>
+        </div>
         <div id="customization-section" class="customization-section" style="display:none;">
-            <h2 class="categoryPerfiumGenderp">Step 1: Choose Your Bottle Size</h2>
+            <h2 class="categoryPerfiumGenderp text-center">Step 1: Choose Your Bottle Size</h2>
             <div class="bottle-size my-5">
                 <div class="bottle-option" data-size="50ml" data-price="30" onclick="selectBottle(this)">
                     <img src="bottle-50ml.png" alt="50ml Bottle">
@@ -426,7 +427,7 @@
                 </div>
             </div>
 
-            <h2 class="categoryPerfiumGenderp">Step 2: Select Your Essences</h2>
+            <h2 class="categoryPerfiumGenderp text-center">Step 2: Select Your Essences</h2>
             <div class="essence-selection my-5">
                 <div class="container d-flex justify-content-end align-item-center p-0">
                     <button class="mx-3 btn btn_clear_designe" id="btn_clear">Clear</button><br>
@@ -452,10 +453,10 @@
             </div>
 
            
-            <h2 class="categoryPerfiumGenderp">Step 3: Total Price</h2>
-            <p id="total-price">Total: $0.00</p>
+            <h2 class="categoryPerfiumGenderp text-center">Step 3: Total Price</h2>
+            <p id="total-price" class="text-center">Total: $0.00</p>
             
-           
+        
         </div>
     </div>
 
