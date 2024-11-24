@@ -23,33 +23,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal_tab_button">
-                                        <ul class="nav product_navactive owl-carousel" >
-                                                {% for sameCat in sameCategory %}
-                                                <li>
-                                                    <a href="{% url 'product' pk=sameCat.id %}">
-                                                        <img src="{{ sameCat.brandImage.url }}" alt="{{ sameCat.name }}">
-                                                    </a>
-                                                </li>
-                                                {% endfor %}
-                                        </ul> 
-                                        {% comment %} <ul>
-                                            {% for sameCat in sameCategory %}
-                                            <li>
-                                                <a href="{% url 'product' pk=sameCat.id %}">
-                                                    <img src="{{ sameCat.brandImage.url }}" alt="{{ sameCat.name }}">
-                                                </a>
-                                            </li>
-                                            {% endfor %}
-                                        </ul> {% endcomment %}
-                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="modal_right">
                                     <div class="modal_title mb-10">
-                                        <h2>{{perfume.name}}</h2>
+                                        <h2>{{perfume.name}}</h2> 
+                                        <span class="text-muted">({{perfume.smallText}})</span>
                                     </div>
                                     <div class="modal_price mb-10">
                                         <span class="new_price">${{perfume.low_price}}</span>
@@ -62,11 +43,13 @@
                                         <div class="variants_size">
                                             <h2>Size</h2>
                                             <select class="select_option">
-                                                <option value="1" selected>10ml</option>
-                                                <option value="1">25ml</option>
-                                                <option value="1">50ml</option>
-                                                <option value="1">100ml</option>
-                                                <option value="1">250ml</option>
+                                                {% for size in size %}
+                                                <option value="1" 
+                                                {% if size.size == '50ml' %}
+                                                    selected
+                                                {% endif %}
+                                                >{{size.size}} ({{size.sizePrice}}$)</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="variants_fragrance">
@@ -98,9 +81,26 @@
                                         </ul>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div> 
-                        
+<hr style="height:10px">
+                        <div class="container">
+                            <div class="bg-dark">
+                            <h1 class="text-center total-price bg-light">More {{perfume.gender}} Perfumes</h1>
+                            </div>
+                            <ul class="SameCat_ul_container" >
+                                    {% for sameCat in sameCategory %}
+                                    <li class="h-100">
+                                        <a href="{% url 'product' pk=sameCat.id %}" id="productSameCategory_reload">
+                                            <img src="{{ sameCat.brandImage.url }}" alt="{{ sameCat.name }}">
+                                            <p class="text-center">{{sameCat.name}}</p>
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                            </ul> 
+                        </div>
+
                     </div>
                 </div>
                 

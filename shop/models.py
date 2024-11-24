@@ -23,6 +23,14 @@ class Perfium(models.Model):
     low_price = models.DecimalField(max_digits=5, decimal_places=1)
     gender = models.ForeignKey(to=Gendar, on_delete=models.CASCADE)  
     brandImage = models.ImageField(upload_to='photos', null=False, blank=False)
+    smallText = models.CharField(default=' ',max_length=100)
 
     def __str__(self):
         return self.name
+
+class PerfumSize(models.Model):
+    size = models.CharField(blank=False,null=False , max_length=20)
+    sizePrice = models.DecimalField(max_digits=5, decimal_places=1)
+    
+    def __str__(self):
+        return self.size

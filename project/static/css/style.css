@@ -1789,7 +1789,7 @@ font-family: 'Playfair Display', serif;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #fff;
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   position: relative;
   text-transform: uppercase;    
   margin: 0;
@@ -1798,4 +1798,68 @@ font-family: 'Playfair Display', serif;
   color: #333;
   padding: 10px;
   margin-top: 5px;
+}
+.total-price {
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  text-transform: uppercase;    
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #333;
+  padding: 10px;
+  margin-top: 5px;
+
+}
+
+#about-us {
+  padding: 40px 0;
+  background-color: #333;
+}
+
+#team{
+  background-color: #333;
+}
+#team .card {
+  border: none;
+  transition: transform 0.3s;
+  background-color: #2a2a2a;
+  color: white;
+}
+.card-img-top{
+  max-height: 300px;
+}
+
+#team .card:hover {
+  transform: translateY(-10px);
+}
+
+.small_price{
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#d1a652 78%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  text-transform: uppercase;    
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #333;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 15px; 
+}
+.slider_content p {
+  margin: 24px 0 35px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
 }
