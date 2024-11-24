@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Perfium,Gendar,Blog, PerfumSize
-
+from .models import Perfium,Gendar,Blog, PerfumSize, MySetting
+from django.views.decorators.cache import never_cache
 
 
 # Create your views here.
@@ -11,17 +11,17 @@ def main(request):
     allProd = Perfium.objects.all() 
     allGender = Gendar.objects.all()
     blogs = Blog.objects.all()
+    setting = MySetting.objects.last()
 
-    
     return render(request,'index.html',{'male':malePerfume,
                                         'female':femalePerfume,
                                          'unisex': unisexPerfume,
                                          'all': allProd,
                                          'gen':allGender,
-                                         'blog':blogs})
+                                         'blog':blogs,
+                                         'setting':setting})
 
 
-from django.views.decorators.cache import never_cache
 
 @never_cache
 def product(request, pk):
@@ -33,11 +33,13 @@ def product(request, pk):
     femalePerfume = Perfium.objects.filter(gender__gender='Female') 
     unisexPerfume = Perfium.objects.filter(gender__gender='Unisex') 
     perfumeSize = PerfumSize.objects.all()
+    setting = MySetting.objects.last()
 
     return render(request, 'eashProduct.html', {'perfume': perfume, 
                                                 'sameCategory': sameCategori,'gen':allGender,
                                                 'male':malePerfume,
                                                 'female':femalePerfume,
                                                 'unisex': unisexPerfume,
-                                                'size':perfumeSize,})
+                                                'size':perfumeSize,
+                                                'setting':setting})
                                                 

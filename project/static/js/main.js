@@ -410,10 +410,11 @@ function whatsapp_text() {
   
       const text = `Hello Joe,\nI would like to order a ${bottleSize} bottle. \nThe essences I would like to include are:\n${essencesList}`;
 
-
-  console.log(text); 
-
-  // Example: Send this text via WhatsApp
-  const whatsappUrl = `https://wa.me/+96181121347?text=${encodeURIComponent(text)}`;
+      const button = document.getElementById("send-button");
+      
+      const phoneNumber = button.getAttribute("phone_number");
+   
+  
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
   window.open(whatsappUrl, '_blank');
 }

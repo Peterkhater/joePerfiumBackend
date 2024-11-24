@@ -960,12 +960,7 @@ h6 {
     background: #333;
   }
 }
-.disabled {
-  pointer-events: none; /* Disable click events */
-  opacity: 0.5; /* Make it look disabled */
-  cursor: not-allowed; /* Change cursor to indicate disabled state */
-  
-}
+
 
 
 .header_transparent .sticky-header.sticky {
@@ -1680,3 +1675,13 @@ h6 {
 
   
   /* *************************** */
+  .disabled {
+    pointer-events: none; /* Disable click events */
+    opacity: 0.5; /* Make it look disabled */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    
+  }
+  .disabled:hover{
+    color: inherit;
+    cursor: help;
+  }

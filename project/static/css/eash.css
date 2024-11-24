@@ -165,16 +165,20 @@ body{
   .mb-15.variants_fragrance {
     margin-bottom: 24px;
   }
+  .select_option_design{
+height: 40px;
+border-color: lightgray;
+  }
   
-  .variants_size .select_option,
-  .variants_fragrance .select_option {
+  .variants_size .select_option_design,
+  .variants_fragrance .select_option_design {
     width: 100%;
     border-radius: 0;
     margin-bottom: 25px;
   }
   
-  .variants_size .select_option .list,
-  .variants_fragrance .select_option .list {
+  .variants_size .select_option_design .list,
+  .variants_fragrance .select_option_design .list {
     width: 100%;
     border-radius: 0;
   }
@@ -323,18 +327,18 @@ body{
     left: auto;
   }
   
-  .select_option {
+  .select_option_design {
     display: flex;
     align-items: center;
   }
   
   @media only screen and (max-width: 767px) {
-    .select_option {
+    .select_option_design {
       flex-direction: column;
     }
   }
   
-  .select_option .nice-select {
+  .select_option_design .nice-select {
     border: 0;
     height: 30px;
     line-height: 29px;

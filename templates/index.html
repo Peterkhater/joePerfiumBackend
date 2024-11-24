@@ -152,8 +152,12 @@
                                                             </h4>
     
                                                             <div class="price_box">
-                                                                <span class="old_price">${{ prod.high_price }}</span>
-                                                                <span class="current_price">${{ prod.low_price }}</span>
+                                                                {% for size in prod.sizes.all %}
+                                                                {% if size.size == "50ml" %}
+                                                                <span class="current_price">${{ size.minPrice }}</span>
+                                                                <span class="old_price">${{ size.high_size }}</span>
+                                                                {% endif %}
+                                                                {% endfor %}
                                                             </div>
                                                             <div class="product_rating">
                                                                 <ul>
@@ -208,85 +212,89 @@
                                         <div class="row">
                                             <div class="product_carousel product_column4 owl-carousel">
                                                 {% for prod in female %}
-                                        <div class="col-lg-3">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="{% url 'product' prod.pk %}" class="primary_img">
-                                                            <img src="{{ prod.brandImage.url }}" alt="">
-                                                        </a>
-                                                        <a href="{% url 'product' prod.pk %}" class="secondary_img">
-                                                            <img src="{% static "images/jPerfSmall.webp" %}" alt="">
-                                                        </a>
-                                                        <div class="action_links">
-                                                            <ul>
-                                                                <li class="add_to_cart">
-                                                                    <a href="#" title="Add to Cart">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="wishlist">
-                                                                    <a href="#" title="Add to Wishlist">
-                                                                        <i class="fa fa-heart-o"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="compare">
-                                                                    <a href="#" title="Add to Compare">
-                                                                        <i class="fa fa-random"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="quick_button">
-                                                                    <a href="{% url 'product' prod.pk %}" 
-                                                                    title="Quick View">
-                                                                        <i class="fa fa-eye"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <h4 class="product_name">
-                                                            <a href="#">{{ prod.name }}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <span class="old_price">${{ prod.high_price }}</span>
-                                                            <span class="current_price">${{ prod.low_price }}</span>
-                                                        </div>
-                                                        <div class="product_rating">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </div>
-                            {% endfor %}
+                                                <div class="col-lg-3">
+                                                    <article class="single_product">
+                                                        <figure>
+                                                            <div class="product_thumb">
+                                                                <a href="{% url 'product' prod.pk %}" class="primary_img">
+                                                                    <img src="{{ prod.brandImage.url }}" alt="">
+                                                                </a>
+                                                                <a href="{% url 'product' prod.pk %}" class="secondary_img">
+                                                                    <img src="{% static "images/jPerfSmall.webp" %}" alt="">
+                                                                </a>
+                                                                <div class="action_links">
+                                                                    <ul>
+                                                                        <li class="add_to_cart">
+                                                                            <a href="#" title="Add to Cart">
+                                                                                <i class="fa fa-shopping-cart"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="wishlist">
+                                                                            <a href="#" title="Add to Wishlist">
+                                                                                <i class="fa fa-heart-o"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="compare">
+                                                                            <a href="#" title="Add to Compare">
+                                                                                <i class="fa fa-random"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="quick_button">
+                                                                            <a href="{% url 'product' prod.pk %}" 
+                                                                            title="Quick View">
+                                                                                <i class="fa fa-eye"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <figcaption class="product_content">
+                                                                <h4 class="product_name">
+                                                                    <a href="#">{{ prod.name }}</a>
+                                                                </h4>
+        
+                                                                <div class="price_box">
+                                                                    {% for size in prod.sizes.all %}
+                                                                    {% if size.size == "50ml" %}
+                                                                    <span class="current_price">${{ size.minPrice }}</span>
+                                                                    <span class="old_price">${{ size.high_size }}</span>
+                                                                    {% endif %}
+                                                                    {% endfor %}
+                                                                </div>
+                                                                <div class="product_rating">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </article>
+                                                </div>
+                                    {% endfor %}
 
                                         </div>
                                     </div>
@@ -304,85 +312,89 @@
                                 <div class="row">
                                     <div class="product_carousel product_column4 owl-carousel">
                                         {% for prod in unisex %}
-                                        <div class="col-lg-3">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="{% url 'product' prod.pk %}" class="primary_img">
-                                                            <img src="{{ prod.brandImage.url }}" alt="">
-                                                        </a>
-                                                        <a href="{% url 'product' prod.pk %}" class="secondary_img">
-                                                            <img src="{% static "images/jPerfSmall.webp" %}" alt="">
-                                                        </a>
-                                                        <div class="action_links">
-                                                            <ul>
-                                                                <li class="add_to_cart">
-                                                                    <a href="#" title="Add to Cart">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="wishlist">
-                                                                    <a href="#" title="Add to Wishlist">
-                                                                        <i class="fa fa-heart-o"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="compare">
-                                                                    <a href="#" title="Add to Compare">
-                                                                        <i class="fa fa-random"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="quick_button">
-                                                                    <a href="{% url 'product' prod.pk %}" 
-                                                                    title="Quick View">
-                                                                        <i class="fa fa-eye"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                            <div class="col-lg-3">
+                                                <article class="single_product">
+                                                    <figure>
+                                                        <div class="product_thumb">
+                                                            <a href="{% url 'product' prod.pk %}" class="primary_img">
+                                                                <img src="{{ prod.brandImage.url }}" alt="">
+                                                            </a>
+                                                            <a href="{% url 'product' prod.pk %}" class="secondary_img">
+                                                                <img src="{% static "images/jPerfSmall.webp" %}" alt="">
+                                                            </a>
+                                                            <div class="action_links">
+                                                                <ul>
+                                                                    <li class="add_to_cart">
+                                                                        <a href="#" title="Add to Cart">
+                                                                            <i class="fa fa-shopping-cart"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="wishlist">
+                                                                        <a href="#" title="Add to Wishlist">
+                                                                            <i class="fa fa-heart-o"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="compare">
+                                                                        <a href="#" title="Add to Compare">
+                                                                            <i class="fa fa-random"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="quick_button">
+                                                                        <a href="{% url 'product' prod.pk %}" 
+                                                                        title="Quick View">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <h4 class="product_name">
-                                                            <a href="#">{{ prod.name }}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <span class="old_price">${{ prod.high_price }}</span>
-                                                            <span class="current_price">${{ prod.low_price }}</span>
-                                                        </div>
-                                                        <div class="product_rating">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </div>
-                            {% endfor %}
+                                                        <figcaption class="product_content">
+                                                            <h4 class="product_name">
+                                                                <a href="#">{{ prod.name }}</a>
+                                                            </h4>
+    
+                                                            <div class="price_box">
+                                                                {% for size in prod.sizes.all %}
+                                                                {% if size.size == "50ml" %}
+                                                                <span class="current_price">${{ size.minPrice }}</span>
+                                                                <span class="old_price">${{ size.high_size }}</span>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </div>
+                                                            <div class="product_rating">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </article>
+                                            </div>
+                                {% endfor %}
  
                                     </div>
                                 </div>
@@ -430,7 +442,8 @@
             <h2 class="categoryPerfiumGenderp text-center">Step 2: Select Your Essences</h2>
             <div class="container d-flex justify-content-end align-item-center p-0">
                 <button class="mx-3 btn btn_clear_designe" id="btn_clear">Clear</button><br>
-                <button type="mx-3 button" class="btn btn_clear_designe" onclick="whatsapp_text()">send your mix</button>
+                <button type="button"  phone_number="{{setting.phone}}" class="btn btn_clear_designe" onclick="whatsapp_text()" id="send-button">send your mix</button>
+
             </div>
             <div class="essence-selection my-5">
                 <h1 class="total-price w-100 d-block text-center">male : </h1>
@@ -513,83 +526,6 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-    {% comment %} <div class="container">
-    <div class="testimonial_style_two mb-60">
-        <div class="testimonial_container">
-            <div class="section_title section_title_style2">
-                <h2>Testimonial</h2>
-            </div>
-            <div class="testimonial_sidebar_carousel owl-carousel">
-                <div class="single_testimonial">
-                    <div class="testimonial_img">
-                        <a href="#"><img src="{% static "images/testimonial/testimonial1.jpg" %}" alt=""></a>
-                    </div>
-                    <div class="testimonial_content">
-                        <h4><a href="#">Navnit Kumar</a></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius omnis nam
-                            eum iusto aspernatur cupiditate, ipsam deleniti labore dolorem saepe
-                            nostrum exercitationem amet quod harum blanditiis sint atque soluta
-                            quaerat.</p>
-                    </div>
-                </div>
-                <div class="single_testimonial">
-                    <div class="testimonial_img">
-                        <a href="#"><img src="{% static "images/testimonial/testimonial2.jpg" %}" alt=""></a>
-                    </div>
-                    <div class="testimonial_content">
-                        <h4><a href="#">Ravi Kumawat</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla,
-                            aspernatur fugit obcaecati officia eligendi minus possimus, quae eius ex
-                            quasi delectus dolorem. Commodi consectetur saepe magnam atque
-                            reprehenderit suscipit pariatur.
-
-                        </p>
-                    </div>
-                </div>
-                <div class="single_testimonial">
-                    <div class="testimonial_img">
-                        <a href="#"><img src="{% static "images/testimonial/testimonial3.jpg" %}" alt=""></a>
-                    </div>
-                    <div class="testimonial_content">
-                        <h4><a href="#">Nilay Hirpara</a></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                            accusantium quas excepturi, quam explicabo repudiandae vitae quisquam
-                            ratione voluptatum molestiae exercitationem architecto temporibus eaque
-                            fugit dolores, rerum laborum, optio itaque.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
-    
-
-    {% comment %} <div class="newsletter_style2">
-        <div class="newsletter_container">
-            <div class="section_title section_title_style2">
-                <h2>Newsletter</h2>
-            </div>
-            <div class="subscribe_form">
-                <form>
-                    <input type="email" autocomplete="off" placeholder="example@gmail.com">
-                    <button>
-                        <i class="fa fa-envelope-o"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="newsletter_content">
-                
-            </div>
-        </div>
-    </div> {% endcomment %}
-   
-
     </div>
     
     </div>
@@ -616,8 +552,8 @@
                     <div class="card">
                         <img src="{%static 'images/JP2.jpeg'%}" alt="Team Member 1" class="card-img-top">
                         <div class="card-body">
-                            <h5 id="total-price" class="card-title text-center">CEO Founder</h5>
-                            <p  class="small_price text-center">Joe Hasbani</p>
+                            <h5 id="total-price" class="card-title text-center">Owner</h5>
+                            <p  class="small_price text-center">{{setting.owner_name}}</p>
                         </div>
                     </div>
                 </div>
