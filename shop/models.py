@@ -15,29 +15,6 @@ class Gendar(models.Model):
     def __str__(self):
         return self.gender
 
-
-# class Perfium(models.Model):
-#     name = models.TextField(blank=False, null=False)
-#     description = models.TextField(blank=False, null=False)
-#     high_price = models.DecimalField(max_digits=5, decimal_places=1)
-#     low_price = models.DecimalField(max_digits=5, decimal_places=1)
-#     gender = models.ForeignKey(to=Gendar, on_delete=models.CASCADE)  
-#     brandImage = models.ImageField(upload_to='photos', null=False, blank=False)
-#     smallText = models.CharField(default=' ',max_length=100)
-#     sizes = models.ManyToManyField('PerfumeSize')
-
-#     def __str__(self):
-#         return self.name
-
-# class PerfumSize(models.Model):
-#     size = models.CharField(blank=False,null=False , max_length=20)
-#     minPrice = models.DecimalField(max_digits=5, decimal_places=1)
-#     high_size = models.DecimalField(max_digits=5, decimal_places=1)
-
-#     def __str__(self):
-#         return self.size
-
-
 class Perfium(models.Model):  # Corrected model name to 'Perfume'
     name = models.TextField(blank=False, null=False)
     description = models.TextField(blank=False, null=False)
@@ -75,3 +52,4 @@ class MySetting(models.Model):
    updated_at = models.DateTimeField(auto_now=True)
    description = models.TextField(blank=True, null=True)
    owner_name = models.CharField(max_length=100, blank=True, null=True)
+   owner_img =  models.ImageField(upload_to='photos', blank=True, null=True)

@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import redirect, render,get_object_or_404
 from .models import Perfium,Gendar,Blog, PerfumSize, MySetting
 from django.views.decorators.cache import never_cache
 
@@ -42,4 +42,25 @@ def product(request, pk):
                                                 'unisex': unisexPerfume,
                                                 'size':perfumeSize,
                                                 'setting':setting})
+
+
+def search_view(request):
+    query = request.GET.get('query', '').strip() 
+    if query:
+        try:
+            perfume = Perfium.objects.get(name__iexact=query)
+            
+            return redirect('product', pk=perfume.id)
+        except Perfium.DoesNotExist:
+            
+            return render(request, '404.html')
+    return render(request, 'search_results.html', {'error': 'Please enter a search term.'})
                                                 
+
+def error_404(request, exception):
+   context = {}
+   return render(request,'404.html', context)
+
+def error_500(request):
+   context = {}
+   return render(request,'admin/500.html', context)

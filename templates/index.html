@@ -6,19 +6,7 @@
 {%endblock css%}
 
 
-{% comment %} 
-{% block gendersNav2 %}
-{% for prod in gen %}
-<li><a href="
-    {% if prod.gender == 'Male' %}
-#mangodown
-{% elif prod.gender == 'Female' %}
-#womangodown
 
-{% endif %}
-    ">{{prod.gender}}</a></li>
-{% endfor %}
-{% endblock gendersNav2 %}  {% endcomment %}
 
 {% block mainContent %}
     
@@ -26,7 +14,7 @@
     <!-- slider section starts  -->
     <section class="slider_section slider_section2 mb-66">
         <div class="slider_area owl-carousel">
-            <div class="single_slider d-flex align-items-center" data-bgimg="{% static "images/slider/slider1.jpg" %}">
+            <div class="single_slider d-flex align-items-center" data-bgimg="{% static "images/slider1.jpg" %}">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-6 col-md-6 offset-md-6">
@@ -36,24 +24,23 @@
                                 <p>The rich aromatic notes of rosemary and nerolu combined with the sophistication of
                                     tonka beans and white beans and white woods to create the perfect accompaniment for
                                     the suited look.</p>
-                                <a href="#" class="button">Shop Now <i class="fa fa-arrow-right"></i></a>
+                                <a href="#mangodown" class="button">check now <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="single_slider d-flex align-items-center" data-bgimg="{% static "images/slider/slider2.jpg" %}">
+            <div class="single_slider d-flex align-items-center" data-bgimg="{% static "images/slider2.jpg" %}">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-7">
                             <div class="slider_content slider_content2 content_left">
-                                <h1>Watch</h1>
-                                <h2>Maison Micallef</h2>
-                                <p>This perfume is a wonderful elixir that heightens both the scents of gourmet Bourbon
-                                    vanilla and those refined of tuberose and jasmine. The delightful alliance reminds
-                                    of tropical paradise.</p>
-                                <a href="#" class="button">Shop Now <i class="fa fa-arrow-right"></i></a>
+                                <h1>Women’s  Collection</h1>
+                                <h2>Check It Now</h2>
+                                <p>
+                                    Elevate your everyday with our women’s perfume collection. From light floral scents to bold, captivating aromas, each fragrance celebrates elegance and individuality. Perfect for any mood or occasion, find your signature scent today.</p>
+                                <a href="#womangodown" class="button">Shop Now <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -122,16 +109,7 @@
                                                             </a>
                                                             <div class="action_links">
                                                                 <ul>
-                                                                    <li class="add_to_cart">
-                                                                        <a href="#" title="Add to Cart">
-                                                                            <i class="fa fa-shopping-cart"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="wishlist">
-                                                                        <a href="#" title="Add to Wishlist">
-                                                                            <i class="fa fa-heart-o"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                    
                                                                     <li class="compare">
                                                                         <a href="#" title="Add to Compare">
                                                                             <i class="fa fa-random"></i>
@@ -224,16 +202,7 @@
                                                                 </a>
                                                                 <div class="action_links">
                                                                     <ul>
-                                                                        <li class="add_to_cart">
-                                                                            <a href="#" title="Add to Cart">
-                                                                                <i class="fa fa-shopping-cart"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="wishlist">
-                                                                            <a href="#" title="Add to Wishlist">
-                                                                                <i class="fa fa-heart-o"></i>
-                                                                            </a>
-                                                                        </li>
+                                                    
                                                                         <li class="compare">
                                                                             <a href="#" title="Add to Compare">
                                                                                 <i class="fa fa-random"></i>
@@ -324,16 +293,6 @@
                                                             </a>
                                                             <div class="action_links">
                                                                 <ul>
-                                                                    <li class="add_to_cart">
-                                                                        <a href="#" title="Add to Cart">
-                                                                            <i class="fa fa-shopping-cart"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="wishlist">
-                                                                        <a href="#" title="Add to Wishlist">
-                                                                            <i class="fa fa-heart-o"></i>
-                                                                        </a>
-                                                                    </li>
                                                                     <li class="compare">
                                                                         <a href="#" title="Add to Compare">
                                                                             <i class="fa fa-random"></i>
@@ -399,7 +358,7 @@
                                     </div>
                                 </div>
                             </div>
-            <!-- man end here ########################################################################## -->
+            
             </div>  
 
         </div>
@@ -479,7 +438,7 @@
     </div>
 
 
-    <!-- home section area starts  -->
+    <!-- blog section area starts  -->
 
     <div class="home_section_two color_two mb-70">   
     <section class="blog_section blog_two color_two mb-65">
@@ -496,7 +455,7 @@
                 <div class="blog_carousel blog_column3 owl-carousel">
                     {% for blog in blog %}
                     <div class="col-lg-3">
-                        <div class="single_blog">
+                        <div class="single_blog" id="{{blog.id}}">
                             <figure>
                                 <div class="blog_thumb">
                                     <a href="#">
@@ -535,7 +494,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h2 id="total-price">About Us</h2>
-                <p id="total-price" style="font-size: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed euismod, libero a tincidunt lacinia, nunc diam tincidunt tellus, at tincidunt justo mi id metus. Sed auctor, ex id sodales tincidunt, enim nunc tincidunt nisl, ut cursus urna nisl in nunc. Nullam euismod, erat vel aliquet ultrices, purus urna tincidunt nunc, at eleifend nisl nunc eu justo. Sed vitae nunc nec tellus varius aliquet. Sed auctor, ex id sodales tincidunt, enim nunc tincidunt nisl, ut cursus urna nisl in nunc.</p>
+                <p id="total-price" style="font-size: 20px;">{{setting.description}}</p>
             </div>
             <div class="col-md-6">
                 <img src="{%static 'images/JP2.jpeg'%}" alt="About Us Image" class="img-fluid">
@@ -548,30 +507,31 @@
         <div class="container">
             <h2 class="text-center mb-4" id="total-price">Our Team</h2>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
-                        <img src="{%static 'images/JP2.jpeg'%}" alt="Team Member 1" class="card-img-top">
+                        <img src="{{setting.owner_img.url}}" alt="Team Member 1" class="card-img-top">
                         <div class="card-body">
                             <h5 id="total-price" class="card-title text-center">Owner</h5>
                             <p  class="small_price text-center">{{setting.owner_name}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <img src="{%static 'images/developer.jpg'%}" alt="Team Member 2" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title text-center" id="total-price">Our Developer</h5>
                             <p class="small_price text-center">Peter.J.Khater</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="team-member-3.jpg" alt="Team Member 3" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Mike Johnson</h5>
-                            <p class="card-text">Position</p>
+                            
+                            <div class="container d-flex justify-content-center align-item-center ">
+                                <button class="mt-4 mx-2 btn btn_clear_designe" >
+                                    <a href="https://wa.me/+96181121347">Contact the Developer</a>
+                                </button><br>
+                                <button class="mt-4 mx-2 btn btn_clear_designe" >
+                                    <a href="https://www.tiktok.com/@software__engineer">tiktok</a>
+                                </button><br>
+                            </div>
+
                         </div>
                     </div>
                 </div>

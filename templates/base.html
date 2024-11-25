@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our collection of luxury perfumes for men and women. Affordable prices, fast shipping, and premium fragrances for every occasion.">
+
     <title>Perfume | E-Commerce</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,30 +40,30 @@
             <div class="header_account">
                 <ul>
                     <li class="language disabled">
-                        <a href="#"><img src="{% static "images/icon/language.png" %}" alt="English"> EN <i
+                        <a href="#"><img src="{% static "images/language.png" %}" alt="English"> EN <i
                                 class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown_language">
+                        {% comment %} <ul class="dropdown_language">
                             <li><a href="#">English</a></li>
                             <li><a href="#">Germany</a></li>
                             <li><a href="#">Hindi</a></li>
-                        </ul>
+                        </ul> {% endcomment %}
                     </li>
                     <li class="currency disabled">
                         <a href="#">INR <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown_currency">
+                        {% comment %} <ul class="dropdown_currency">
                             <li><a href="#">EUR - EURO</a></li>
                             <li><a href="#">GBP - British Pound</a></li>
                             <li><a href="#">USD - US Dollar</a></li>
-                        </ul>
+                        </ul> {% endcomment %}
                     </li>
                     <li class="top_links disabled">
                         <a href="#">My Account <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown_links">
+                        {% comment %} <ul class="dropdown_links">
                             <li><a href="#">Checkout</a></li>
                             <li><a href="#">My Account</a></li>
                             <li><a href="#">Shopping Cart</a></li>
                             <li><a href="#">Wishlist</a></li>
-                        </ul>
+                        </ul> {% endcomment %}
                     </li>
 
                 </ul>
@@ -72,10 +74,11 @@
                     <li class="search_box">
                         <a href="javascript:void(0)"><i class="fa fa-search"></i></a>
                         <div class="search_widget">
-                            <form action="#">
-                                <input type="text" placeholder="Search Your Perfume">
+                            <form action="{% url 'search' %}" method="GET">
+                                <input type="text" name="query" placeholder="Search Your Perfume" required>
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
+                            
                         </div>
                     </li>
                     <li class="header_wishlist">
@@ -95,7 +98,18 @@
                     <li class="menu-item-has-children active">
                         <a href="#">Home</a>
                         <ul class="sub-menu">
-                            {% block gendersNav %}{% endblock gendersNav %}
+                            {% for prod in gen %}
+                                                <li><a href="
+                                                    {% if prod.gender == 'Male' %}
+                                                {% url 'shop' %}#mangodown
+                                                {% elif prod.gender == 'Female' %}
+                                                {% url 'shop' %}#womangodown
+                                                {% elif prod.gender == 'Unisex' %}
+                                                {% url 'shop' %}#unigodown
+
+                                                {% endif %}
+                                                    ">{{prod.gender}}</a></li>
+                                                {% endfor %}
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
@@ -136,17 +150,17 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#">My Account</a>
+                        <a href="https://wa.me/{{setting.phone}}">Contact Us</a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="{% url 'shop'%}#about-us">About Us</a>
                     </li>
                     <li class="menu-item-has-children disabled">
                         <a href="#">User</a>
-                        <ul class="sub-menu">
+                        {% comment %} <ul class="sub-menu">
                             <li><a href="#">Login In</a></li>
                             <li><a href="#">Sign up</a></li>
-                        </ul>
+                        </ul> {% endcomment %}
                     </li>
                 </ul>
             </div>
@@ -154,7 +168,7 @@
             <div class="offcanvas_footer">
                 <span><a href="#"><i class="fa fa-envelope-0"></i>deo@gmail.com</a></span>
                 <ul>
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="facebook"><a href="{{setting.facebookLink}}"><i class="fa fa-facebook"></i></a></li>
                     <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li class="pinterest"><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
                     <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -174,7 +188,7 @@
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a href="index.html"><img src="" alt=""></a>
-                                {% comment %} images/logo.png {% endcomment %}
+                               
                             </div>
                         </div>
 
@@ -241,8 +255,9 @@
                                         <li>
                                             <a href="#">Blog <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="#">Newsletter</a></li>
-                                                <li><a href="#">Social Media</a></li>
+                                                {% for blog in blog %}
+                                                <li><a href="{% url "shop"%}#{{blog.id}}">{{blog.title}}</a></li>
+                                                {%endfor%}
                                             </ul>
                                         </li>
                                         <li><a href="{% url 'shop'%}#about-us">About Us</a></li>
@@ -269,8 +284,8 @@
                                                 <i class="fa fa-search"></i>
                                             </a>
                                             <div class="search_widget">
-                                                <form action="#">
-                                                    <input type="text" placeholder="Search your perfume">
+                                                <form action="{% url 'search' %}" method="GET">
+                                                    <input type="text" name="query" placeholder="Search Your Perfume" required>
                                                     <button type="submit"><i class="fa fa-search"></i></button>
                                                 </form>
                                             </div>
@@ -281,7 +296,7 @@
                                             </a>
                                         </li>
                                         <li class="mini_cart_wrapper">
-                                            <a href="">
+                                            <a href="{{setting.facebookLink}}">
                                                 <i class="fa-brands fa fa-facebook"></i>
                                             </a>
 
@@ -303,21 +318,21 @@
                                             </ul>
                                         </li>
                                         <li class="language disabled">
-                                            <a href="#"><img src="{% static "images/icon/language.png" %}" alt="English"> EN <i
+                                            <a href="#"><img src="{% static "images/language.png" %}" alt="English"> EN <i
                                                     class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown_language">
+                                            {% comment %} <ul class="dropdown_language">
                                                 <li><a href="#">English</a></li>
                                                 <li><a href="#">Germany</a></li>
                                                 <li><a href="#">Hindi</a></li>
-                                            </ul>
+                                            </ul> {% endcomment %}
                                         </li>
                                         <li class="currency disabled" >
                                             <a href="#">INR <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown_currency">
+                                            {% comment %} <ul class="dropdown_currency">
                                                 <li><a href="#">EUR - EURO</a></li>
                                                 <li><a href="#">GBP - British Pound</a></li>
                                                 <li><a href="#">USD - US Dollar</a></li>
-                                            </ul>
+                                            </ul> {% endcomment %}
                                         </li>
                                     </ul>
                                 </div>
@@ -343,8 +358,7 @@
                                 <a href="#"><img src="{{setting.logo.url}}" alt="Logo"></a>
                             </div>
                             <div class="footer_desc">
-                                <p>{{setting.description}}</p>
-                            </div>
+                                                            </div>
                             <p>
                                 <span>Address :</span> {{setting.address}}
                             </p>
@@ -400,7 +414,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright_area">
-                            <p>Copyright &copy; 2021 <a href="#">Perfume Store </a>All right Reserved. Peter.J.Khater</p>
+                            <p>Copyright &copy; 2025 <a href="#">Perfume Store </a>All right Reserved. Peter.J.Khater</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

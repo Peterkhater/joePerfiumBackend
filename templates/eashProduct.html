@@ -6,6 +6,11 @@
 
 {% block mainContent %}
 
+<div class="goback" >
+    <a href="{% url 'shop' %}">
+        <img src="{%static 'images/left-arrow.png'%}" alt="">
+    </a>
+</div>
 
         <div class="modal-dialog modal-dialog-centered " role="document">
             
@@ -62,7 +67,7 @@
                                         
                                         <div class="modal_add_to_cart">
                                             <form action="#">
-                                                <input type="number" min="1" max="100" step="1" value="1">
+                                                <input type="number" min="1" max="100" step="1" value="1" id="quantity">
                                                 <button type="submit" phone_number="{{setting.phone}}"id="sendWhatsappButton">Make an Order</button>
                                             </form>
                                         </div>
@@ -70,12 +75,18 @@
                                     <div class="modal_social">
                                         <h2>Follow us on</h2>
                                         <ul>
-                                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a>
-                                            </li>
-                                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li class="facebook"><a href="{{setting.facebookLink}}"><i class="fa fa-facebook"></i></a></li>
+
+                                            <li class='mt-3'>
+                                            <a href="https://wa.me/{{setting.phone}}">
+                                               <img src="{% static "images/whatsapp.png" %}"/>
+                                            </a>
+                                        </li>
+                                        <li class='mt-3'>
+                                            <a href="{{setting.instagramLink}}">
+                                                <img src="{% static "images/instagram.png" %}"/>
+                                            </a>
+                                        </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -85,7 +96,7 @@
 <hr style="height:10px">
                         <div class="container">
                             <div class="bg-dark">
-                            <h1 class="text-center total-price bg-light">More {{perfume.gender}} Perfumes</h1>
+                            <h1 class="text-center total-price bg-light mb-4">More {{perfume.gender}} Perfumes</h1>
                             </div>
                             <ul class="SameCat_ul_container" >
                                     {% for sameCat in sameCategory %}
