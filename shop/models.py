@@ -18,8 +18,6 @@ class Gendar(models.Model):
 class Perfium(models.Model):  # Corrected model name to 'Perfume'
     name = models.TextField(blank=False, null=False)
     description = models.TextField(blank=False, null=False)
-    high_price = models.DecimalField(max_digits=5, decimal_places=1)
-    low_price = models.DecimalField(max_digits=5, decimal_places=1)
     gender = models.ForeignKey(to=Gendar, on_delete=models.CASCADE)
     brandImage = models.ImageField(upload_to='photos', null=False, blank=False)
     smallText = models.CharField(default=' ', max_length=100)

@@ -134,6 +134,9 @@
                                                                 {% if size.size == "50ml" %}
                                                                 <span class="current_price">${{ size.minPrice }}</span>
                                                                 <span class="old_price">${{ size.high_size }}</span>
+                                                                
+                                                                <span class=" text-danger text-end">{{size.size}}</span>
+                                                                
                                                                 {% endif %}
                                                                 {% endfor %}
                                                             </div>
@@ -227,6 +230,7 @@
                                                                     {% if size.size == "50ml" %}
                                                                     <span class="current_price">${{ size.minPrice }}</span>
                                                                     <span class="old_price">${{ size.high_size }}</span>
+                                                                    <span class=" text-danger text-end">{{size.size}}</span>
                                                                     {% endif %}
                                                                     {% endfor %}
                                                                 </div>
@@ -317,6 +321,7 @@
                                                                 {% if size.size == "50ml" %}
                                                                 <span class="current_price">${{ size.minPrice }}</span>
                                                                 <span class="old_price">${{ size.high_size }}</span>
+                                                                <span class=" text-danger text-end">{{size.size}}</span>
                                                                 {% endif %}
                                                                 {% endfor %}
                                                             </div>
